@@ -15,6 +15,9 @@ inputs:
     description: 'PR Pilot SDK version to use'
     required: false
     default: '1.0.3'
+  api-key:
+    description: 'API key for PR Pilot'
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -33,4 +36,4 @@ runs:
       shell: bash
       env:
         ISSUE_NUMBER: ${{ inputs.issue-number }}
-        PR_PILOT_API_KEY: ${{ secrets.PR_PILOT_API_KEY }}
+        PR_PILOT_API_KEY: ${{ inputs.api-key }}
