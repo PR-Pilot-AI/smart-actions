@@ -18,20 +18,18 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.8'
     - name: List files
-      run: ls -la ${{ github.workspace }}
+      run: ls -la ${{ github.action_path }}
       shell: bash
     - name: Install dependencies
       run: python -m pip install --upgrade pip && pip install pr-pilot==${{ inputs.sdk-version }}
       shell: bash
     - name: Run script
-      run: python ${{ github.workspace }}/action.py
+      run: python  ${{ github.action_path }}/action.py
       shell: bash
       env:
         ISSUE_NUMBER: ${{ inputs.issue-number }}
