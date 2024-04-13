@@ -1,0 +1,28 @@
+name: 'Format Github Issue'
+description: 'Adjust issue title, body and labels based on user instructions'
+inputs:
+  issue-number:
+    description: 'Number of the Github issue to format'
+    required: true
+  formatting-instructions:
+    description: 'Instructions for formatting the Github issue'
+    required: true
+    default: |
+      - Ensure the title begins with an appropriate emoji
+      - Issue body should be properly Markdown-formatted
+      - If the issue has no labels, add some
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip && pip install -r ${{ github.workspace }}/requirements.txt
+      shell: bash
+    - name: Run script
+      run: python ${{ github.workspace }}/action.py
+      shell: bash
+      env:
+        ISSUE_NUMBER: ${{ inputs.issue-number }}

@@ -1,0 +1,19 @@
+name: Ensure new issue is properly formatted
+
+# Triggers the workflow on new issue creation
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  format-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Format GitHub Issue
+        uses: PR-Pilot-AI/smart-actions/format-issue@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          formatting-instructions: |
+            - Ensure the title begins with an appropriate emoji
+            - Issue body should be properly Markdown-formatted
+            - If the issue has no labels, add some
