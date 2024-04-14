@@ -1,4 +1,4 @@
-name: Commit Monitoring
+name: Listen for /document command
 
 # Triggers the workflow on every push to the repository
 on:
@@ -13,4 +13,6 @@ jobs:
         with:
           # API key for PR Pilot must be defined as a secret in the repository
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
-          # Removed task-description as it will be dynamically obtained
+          # Keyword that the AI agent will react to
+          trigger-keyword: /document
+          
