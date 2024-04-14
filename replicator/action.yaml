@@ -1,11 +1,8 @@
 name: 'Replicator'
-description: 'Creates a new file or code snippet based on an existing template with specified characteristics'
+description: 'Take something existing and replicate it with different characteristics'
 inputs:
-  template-path:
+  template:
     description: 'Path to the template file or code snippet to replicate'
-    required: true
-  result-path:
-    description: 'Path where the new file or code snippet should be created'
     required: true
   characteristics:
     description: 'Characteristics of the result, described in natural language'
@@ -31,7 +28,6 @@ runs:
       run: python  ${{ github.action_path }}/replicator.py
       shell: bash
       env:
-        TEMPLATE_PATH: ${{ inputs.template-path }}
-        RESULT_PATH: ${{ inputs.result-path }}
+        TEMPLATE: ${{ inputs.template }}
         CHARACTERISTICS: ${{ inputs.characteristics }}
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
