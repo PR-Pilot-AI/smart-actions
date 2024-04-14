@@ -16,16 +16,27 @@ This project contains easy-to-use, customizable Github Actions that you can use 
 
 ## What is a Smart Action?
 
-A Smart Action is a GitHub Action enhanced with AI capabilities, designed to automate and streamline your GitHub workflows. These actions can perform tasks such as formatting issues, reviewing pull requests, and more, with minimal configuration.
+A Smart Action is a [GitHub Action](https://docs.github.com/en/actions) enhanced with AI capabilities, designed to automate Github projects in powerful new ways. You can use one of our curated, pre-defined actions or build your own.
+
+Ready-to-use Smart Actions:
+
+| Action    | How it helps you |
+| -------- | ------- |
+| `format-issue`  | Formats a Github issue, adds labels, checks for spelling errors, and more |
+| `pr-creation-handler` | An AI agent looks at newly created PRs and runs checks or actions you define |
+
 
 ## Using Smart Actions in Your Projects
 
-To use a Smart Action in your project, you can reference it in your GitHub workflow files. For example, the `issue_formatter.yaml` workflow uses the `PR-Pilot-AI/smart-actions/format-issue@v1` action to ensure new issues are properly formatted according to predefined instructions.
+To use a Smart Action in your project, you can reference it in your GitHub workflow files under [`.github/workflows`](https://github.com/PR-Pilot-AI/smart-actions/tree/main/.github/workflows).
+
+Here's a simple example that instructs an AI agent to automatically format and label every new issue in your project:
 
 ```yaml
-name: Ensure new issue is properly formatted
+# .github/workflows/issue_formatter.yaml`
 
-# Triggers the workflow on new issue creation
+name: Ensure new issue is properly formatted and labeled
+
 on:
   issues:
     types: [opened]
@@ -44,7 +55,7 @@ jobs:
           # Number of the issue to be formatted
           issue-number: ${{ github.event.issue.number }}
 
-          # Instructions for formatting the issue
+          # Customize the instructions to your needs
           formatting-instructions: |
             - Ensure the title begins with an appropriate emoji
             - Issue body should be properly Markdown-formatted
