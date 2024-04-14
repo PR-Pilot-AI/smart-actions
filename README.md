@@ -31,11 +31,12 @@ A Smart Action is a [GitHub Action](https://docs.github.com/en/actions) enhanced
 
 All the actions defined here are also actively used in this project.
 
-| Action    | How it helps you |
-| -------- | ------- |
-| [`format-issue`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/issue_formatter.yaml)  | When a new issue is created, an AI agent formats it, adds labels, checks for spelling errors, and more |
-| [`pr-creation-handler`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/auto_review_new_pull_requests.yaml) | An AI agent looks at every new PR and runs checks or actions that you define |
-| [`action-wizard`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/generate_new_action.yaml) | A manual action that generates new Smart Actions based on a prompt |
+| Action                                                                                                                     | How it helps you                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| [`format-issue`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/issue_formatter.yaml)                      | When a new issue is created, an AI agent formats it, adds labels, checks for spelling errors, and more |
+| [`pr-creation-handler`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/auto_review_new_pull_requests.yaml) | An AI agent looks at every new PR and runs checks or actions that you define                           |
+| [`commit-monitor`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/commit_monitor.yaml)                     | An AI agent reacts to a user-defined keyword in commit messages                                        |
+| [`action-wizard`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/generate_new_action.yaml)                 | A manual action that generates new Smart Actions based on a prompt                                     |
 
 ## Using Smart Actions in Your Projects
 
