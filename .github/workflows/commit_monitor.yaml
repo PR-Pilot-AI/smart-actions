@@ -11,9 +11,6 @@ jobs:
       - name: Monitor Commit
         uses: PR-Pilot-AI/smart-actions/commit-monitor@v1
         with:
-
           # API key for PR Pilot must be defined as a secret in the repository
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
-
-          # Description of the task to be performed on every commit
-          task-description: 'Update documentation based on the latest commit'
+          # Removed task-description as it will be dynamically obtained
