@@ -62,8 +62,8 @@ jobs:
             - If the issue has no labels, add some
 ```
 
+Smart Actions use [PR Pilot](https://github.com/PR-Pilot-AI/pr-pilot) to execute the AI agent on your repository. Follow the **[user guide](https://docs.pr-pilot.ai/user_guide.html)** to get your API key!
+
 ## Creating Custom Smart Actions
 
-To create your own custom Smart Actions, you can start by forking this repository or using it as a template. Customize the actions according to your project's needs by modifying the action's code and parameters. For detailed instructions on creating and customizing actions, refer to the [GitHub Actions documentation](https://docs.github.com/en/actions).
-
-By leveraging Smart Actions, you can significantly enhance the automation capabilities of your GitHub projects, making your development process more efficient and streamlined.
+TBD
