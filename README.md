@@ -1,15 +1,3 @@
-<div align="center">
-<img src="https://avatars.githubusercontent.com/ml/17635?s=140&v=" width="100" alt="PR Pilot Logo">
-</div>
-
-<p align="center">
-  <a href="https://github.com/apps/pr-pilot-ai/installations/new"><b>Install</b></a> |
-  <a href="https://docs.pr-pilot.ai">Documentation</a> | 
-  <a href="https://www.pr-pilot.ai/blog">Blog</a> | 
-  <a href="https://www.pr-pilot.ai">Website</a>
-</p>
-
-
 # Smart Github Actions
 
 This project contains easy-to-use, customizable Github Actions that you can use to automate your project in powerful ways.
@@ -66,4 +54,22 @@ Smart Actions use [PR Pilot](https://github.com/PR-Pilot-AI/pr-pilot) to execute
 
 ## Creating Custom Smart Actions
 
-TBD
+To create a custom Smart Action, follow these steps:
+
+1. **Identify the Trigger and Task**: Determine the event that should trigger the action and what the AI agent should do when the trigger is detected.
+
+2. **Use an Existing Action as a Template**: Start by copying the `format-issue` action files (`format-issue/format-issue.py` and `format-issue/action.yaml`) as a template.
+
+3. **Define Input Variables**: Decide which input variables your action will need.
+
+4. **Configure the Trigger**: Based on your trigger, configure how the action should be triggered in the `action.yaml` file.
+
+5. **Write Instructions for the AI Agent**: Turn your task description into clear, concise instructions for the AI agent in the `<action-name>.py` file.
+
+6. **Create the Metadata File**: Fill out the `action.yaml` file with the valid trigger and input variables.
+
+7. **Implement the Action Code**: Write the code in `<action-name>.py` that instructs the AI agent, using the template as a guide.
+
+8. **Create a New Workflow**: Use the `.github/workflows/issue_formatter.yaml` as a template to create a new workflow that uses your custom action.
+
+For additional guidance, refer to the `action-wizard/generate-new-action.py` script, which outlines the process of creating a new Smart Action, including translating task descriptions into instructions for the AI agent.
