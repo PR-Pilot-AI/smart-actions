@@ -11,7 +11,7 @@ inputs:
   trigger:
     description: 'Event trigger for the new GitHub Action'
     required: true
-  task_description:
+  task-description:
     description: 'Description of the task for the new GitHub Action'
     required: true
 runs:
