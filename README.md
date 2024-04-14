@@ -36,7 +36,7 @@ All the actions defined here are also actively used in this project.
 |----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | [`format-issue`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/issue_formatter.yaml)                      | When a new issue is created, an AI agent formats it, adds labels, checks for spelling errors, and more |
 | [`pr-creation-handler`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/auto_review_new_pull_requests.yaml) | An AI agent looks at every new PR and runs checks or actions that you define                           |
-| [`commit-monitor`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/commit_monitor.yaml)                     | Define a keyword / command (e.g. `/task`) and use it in commit messages to delegate follow-up work   |
+| [`commit-monitor`](./commit-monitor)                     | Define a keyword / command (e.g. `/task`) and use it in commit messages to delegate follow-up work   |
 | [`action-wizard`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/generate_new_action.yaml)                 | A manual action that generates new Smart Actions based on a prompt                                     |
 
 ## Using Smart Actions in Your Projects
