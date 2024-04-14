@@ -21,5 +21,11 @@ jobs:
       - name: Generate New Smart Action
         uses: PR-Pilot-AI/smart-actions/action-wizard@v1
         with:
+          # API key for PR Pilot must be defined as a secret in the repository
+          api-key: ${{ secrets.PR_PILOT_API_KEY }}
+
+          # When should the new action be triggered?
           trigger: ${{ github.event.inputs.trigger }}
+
+          # What should PR Pilot do when the action is triggered?
           task_description: ${{ github.event.inputs.task_description }}
