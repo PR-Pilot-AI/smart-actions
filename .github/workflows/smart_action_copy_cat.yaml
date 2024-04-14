@@ -1,26 +1,24 @@
-name: Replicator
+name: Smart Action Copy Cat
 
-# Triggers the workflow manually
 on:
   workflow_dispatch:
     inputs:
       template:
-        description: 'Description of what should be replicated'
+        description: 'Path(s) to the action(s) to be replicated'
         required: true
       characteristics:
-        description: 'Characteristics of the result, described in natural language'
+        description: 'Characteristics of the new action, described in natural language'
         required: true
 
 jobs:
   replicate:
     runs-on: ubuntu-latest
     steps:
-      - name: Replicate Template
+      - name: Replicate Smart Action
         uses: PR-Pilot-AI/smart-actions/replicator@v1
         with:
           # API key for PR Pilot must be defined as a secret in the repository
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
-
           # Inputs for the replicator action
           template: ${{ github.event.inputs.template }}
           characteristics: ${{ github.event.inputs.characteristics }}
