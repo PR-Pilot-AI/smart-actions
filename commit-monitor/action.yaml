@@ -1,10 +1,6 @@
 name: 'Commit Monitor'
 description: 'Executes on every commit to perform specified tasks'
 inputs:
-  task-description:
-    description: 'Description of the task to be performed on every commit'
-    required: true
-    default: 'Update documentation based on the latest commit'
   sdk-version:
     description: 'PR Pilot SDK version to use'
     required: false
@@ -26,5 +22,4 @@ runs:
       run: python  ${{ github.action_path }}/commit-monitor.py
       shell: bash
       env:
-        TASK_DESCRIPTION: ${{ inputs.task-description }}
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
