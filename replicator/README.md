@@ -23,14 +23,16 @@ To use the `replicator` action in your project, you'll need to include it in you
 
 Here is an example that generates a new action based on the code of an existing action.
 
+![Smart Action Copy Cat](./example.png)
+
 ```yaml
 name: Smart Action Copy Cat
 
 on:
   workflow_dispatch:
     inputs:
-      template:
-        description: 'Path(s) to the action(s) to be replicated'
+      action-path:
+        description: 'Path to the action to be used as example'
         required: true
       characteristics:
         description: 'Characteristics of the new action, described in natural language'
@@ -46,6 +48,8 @@ jobs:
           # API key for PR Pilot must be defined as a secret in the repository
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
           # Inputs for the replicator action
-          template: ${{ github.event.inputs.template }}
+          template: |
+            ALL files in the directory:
+            ${{ inputs.action-path }}
           characteristics: ${{ github.event.inputs.characteristics }}
 ```
