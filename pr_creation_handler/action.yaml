@@ -1,0 +1,37 @@
+name: 'PR Creation Handler'
+description: 'Executes tasks when a new PR is created'
+inputs:
+  pr-number:
+    description: 'Number of the Github PR to handle'
+    required: true
+  task-instructions:
+    description: 'Instructions for handling the PR'
+    required: true
+    default: |
+      - Review the PR for any obvious issues
+      - Assign appropriate labels
+      - Notify the team if urgent
+  sdk-version:
+    description: 'PR Pilot SDK version to use'
+    required: false
+    default: '1.0.3'
+  api-key:
+    description: 'API key for PR Pilot'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip && pip install pr-pilot==${{ inputs.sdk-version }}
+      shell: bash
+    - name: Run script
+      run: python  ${{ github.action_path }}/pr_creation_handler.py
+      shell: bash
+      env:
+        PR_NUMBER: ${{ inputs.pr-number }}
+        PR_PILOT_API_KEY: ${{ inputs.api-key }}
+        TASK_INSTRUCTIONS: ${{ inputs.task-instructions }}
