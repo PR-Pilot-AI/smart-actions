@@ -1,0 +1,30 @@
+name: Replicate using template
+
+# Triggers the workflow manually
+on:
+  workflow_dispatch:
+    inputs:
+      template-path:
+        description: 'Path to the template file or code snippet to replicate'
+        required: true
+      result-path:
+        description: 'Path where the new file or code snippet should be created'
+        required: true
+      characteristics:
+        description: 'Characteristics of the result, described in natural language'
+        required: true
+
+jobs:
+  replicate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Replicate Template
+        uses: PR-Pilot-AI/smart-actions/replicator@v1
+        with:
+          # API key for PR Pilot must be defined as a secret in the repository
+          api-key: ${{ secrets.PR_PILOT_API_KEY }}
+
+          # Inputs for the replicator action
+          template-path: ${{ github.event.inputs.template-path }}
+          result-path: ${{ github.event.inputs.result-path }}
+          characteristics: ${{ github.event.inputs.characteristics }}
