@@ -1,12 +1,12 @@
 # Commit-Monitor Action
 
-The `commit-monitor` action is designed to enhance your workflow by allowing you to define specific keywords or commands (e.g., `/task`) within your commit messages. When these are detected, the action can automatically delegate follow-up work, such as creating issues, triggering other workflows, or notifying team members. This feature is particularly useful for automating routine tasks and ensuring that important follow-up actions are not overlooked in the development process.
+The `commit-monitor` action is designed to enhance your workflow by allowing you to define specific keywords or commands (e.g., `/task`) within your commit messages. When these are detected, the action can automatically delegate follow-up work based on the content of your commit message. 
 
-## How It Helps You
+## Workflow Ideas
 
-- **Automate Follow-Up Tasks:** Automatically trigger specific actions or tasks based on keywords in commit messages.
-- **Improve Workflow Efficiency:** Reduce manual oversight and intervention by automating the delegation of follow-up work.
-- **Enhance Collaboration:** Ensure that team members are promptly notified or assigned tasks relevant to the commit, improving team collaboration and project management.
+- **Generate Documentation** Use a `/document` command to automatically create documentation for the code you committed
+- **Let AI finish your work** Commit code stubs and use an `/implement` command to let the AI agent build the rest
+- **Create issues from commits** Use the `/issue` keyword to generate a new Github issue
 
 ## Usage
 
@@ -21,15 +21,20 @@ To use the `commit-monitor` action in your project, you'll need to include it in
 ### Example Workflow
 
 ```yaml
-name: Commit Monitor Workflow
-on: [push]
+name: Listen for /document command
+
+on:
+  push:
 
 jobs:
-  commit-monitor:
+  monitor-commit:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: PR-Pilot-AI/smart-actions/commit-monitor@main
-      with:
-        api-key: ${{ secrets.PR_PILOT_API_KEY }}
-        trigger-keyword: '/task'
+      - name: Monitor Commit
+        uses: PR-Pilot-AI/smart-actions/commit-monitor@v1
+        with:
+          # API key for PR Pilot must be defined as a secret in the repository
+          api-key: ${{ secrets.PR_PILOT_API_KEY }}
+          # Keyword that the AI agent will react to
+          trigger-keyword: /document
+```
