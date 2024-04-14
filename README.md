@@ -77,7 +77,19 @@ Smart Actions use [PR Pilot](https://github.com/PR-Pilot-AI/pr-pilot) to execute
 
 ## Creating Custom Smart Actions
 
-You can create easily your own, customized actions using the **[PR Pilot Python SDK](https://github.com/PR-Pilot-AI/pr-pilot-python)**.
+You can create your own custom actions using the wizard action or manually.
+
+### Using the Action Wizard
+
+The wizard is a special Smart Action that generates new Smart Actions based on your input.
+
+![Action Wizard](wizard.png)
+
+To try it out, just fork the project, put your API Key in the repository secrets ([user guide](https://docs.pr-pilot.ai/user_guide.html)) and run the wizard action.
+
+
+### Using the Python SDK
+For full control and even more customization, you can use the **[PR Pilot Python SDK](https://github.com/PR-Pilot-AI/pr-pilot-python)**.
 
 Every smart action has two components:
 
