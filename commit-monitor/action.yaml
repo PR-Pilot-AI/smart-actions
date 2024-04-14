@@ -10,7 +10,7 @@ inputs:
     required: true
   trigger-keyword:
     description: 'Keyword to trigger task creation'
-    required: false
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -27,3 +27,4 @@ runs:
       env:
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
         COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        TRIGGER_KEYWORD: ${{ inputs.trigger-keyword }}

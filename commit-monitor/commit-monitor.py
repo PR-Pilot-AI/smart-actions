@@ -5,7 +5,7 @@ from pr_pilot.util import create_task
 # Assuming GitHub Actions sets an environment variable for the commit message
 # If not, this approach needs to be adjusted accordingly
 commit_message = os.getenv("COMMIT_MESSAGE")
-trigger_keyword = os.getenv("INPUT_TRIGGER-KEYWORD")  # Environment variable for action input
+trigger_keyword = os.getenv("TRIGGER_KEYWORD")
 repo = os.getenv("GITHUB_REPOSITORY")
 
 if trigger_keyword and trigger_keyword not in commit_message:
