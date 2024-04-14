@@ -12,4 +12,24 @@ The `commit-monitor` action is designed to enhance your workflow by allowing you
 
 To use the `commit-monitor` action in your project, you'll need to include it in your GitHub workflow files. Define the keywords or commands you wish to monitor in your commit messages, and configure the action to perform the desired follow-up tasks when those keywords are detected.
 
-For detailed instructions on how to set up and configure the `commit-monitor` action, refer to the [GitHub workflow documentation](https://github.com/PR-Pilot-AI/smart-actions/tree/main/.github/workflows/commit_monitor.yaml).
+### Inputs
+
+- `sdk-version`: (Optional) Specifies the PR Pilot SDK version to use. Default is `1.0.3`.
+- `api-key`: (Required) Your API key for PR Pilot.
+- `trigger-keyword`: (Required) The keyword to trigger task creation.
+
+### Example Workflow
+
+```yaml
+name: Commit Monitor Workflow
+on: [push]
+
+jobs:
+  commit-monitor:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: PR-Pilot-AI/smart-actions/commit-monitor@main
+      with:
+        api-key: ${{ secrets.PR_PILOT_API_KEY }}
+        trigger-keyword: '/task'
