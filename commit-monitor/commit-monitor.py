@@ -2,12 +2,14 @@ import os
 
 from pr_pilot.util import create_task
 
-task_description = os.getenv("TASK_DESCRIPTION")
+# Assuming GitHub Actions sets an environment variable for the commit message
+# If not, this approach needs to be adjusted accordingly
+commit_message = os.getenv("GITHUB_COMMIT_MESSAGE")
 repo = os.getenv("GITHUB_REPOSITORY")
 
 prompt = f"""
 A commit has been made to the repository. Perform the following task based on the latest commit:
-{task_description}
+{commit_message}
 """
 print(prompt)
 
