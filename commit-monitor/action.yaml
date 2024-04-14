@@ -26,3 +26,4 @@ runs:
       shell: bash
       env:
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
+        COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
