@@ -1,0 +1,17 @@
+name: "Quick-Task"
+description: "Runs a specified task based on the task description provided."
+
+inputs:
+  task-description:
+    description: "The description of the task to run."
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Execute Task
+      shell: bash
+      run: |
+        # Custom script to execute the task
+        echo "Running task: ${{ inputs.task-description }}"
+        # Placeholder for task execution script
