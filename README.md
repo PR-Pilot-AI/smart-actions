@@ -10,19 +10,32 @@
 
 # Smart Github Actions
 
-This project contains easy-to-use, customizable Github Actions that you can use to automate your project in powerful ways.
+Easy-to-use, AI-powered Github Actions - customized and supercharged using natural language.
+
+## Why do I need this?
+Smart Actions can make your daily life on Github easier.
+* **It speaks your language** - Instead of writing config files, just use your own words
+* **Easily automate** manual and tedious, repetitive tasks/workflows like:
+  * Checking / formatting / reacting to new issues
+  * Making sure new PRs follow your contribution guidelines
+* **Hand off small development tasks** to an AI agent
+  * via comment in issue / PR
+  * let the AI agent react to keywords in your commit message
+
 
 ## What is a Smart Action?
 
-A Smart Action is a [GitHub Action](https://docs.github.com/en/actions) enhanced with AI capabilities, designed to automate Github projects in powerful new ways. You can use one of our curated, pre-defined actions or build your own.
+A Smart Action is a [GitHub Action](https://docs.github.com/en/actions) enhanced with **AI capabilities**, designed to automate Github projects in powerful new ways. You can use one of our curated, pre-defined actions or build your own.
 
-Ready-to-use Smart Actions:
+### Ready-to-use Smart Actions
+
+All the actions defined here are also actively used in this project.
 
 | Action    | How it helps you |
 | -------- | ------- |
-| `format-issue`  | Formats a Github issue, adds labels, checks for spelling errors, and more |
-| `pr-creation-handler` | An AI agent looks at newly created PRs and runs checks or actions you define |
-
+| [`format-issue`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/issue_formatter.yaml)  | When a new issue is created, an AI agent formats it, adds labels, checks for spelling errors, and more |
+| [`pr-creation-handler`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/auto_review_new_pull_requests.yaml) | An AI agent looks at every new PR and runs checks or actions that you define |
+| [`action-wizard`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/generate_new_action.yaml) | A manual action that generates new Smart Actions based on a prompt |
 
 ## Using Smart Actions in Your Projects
 
