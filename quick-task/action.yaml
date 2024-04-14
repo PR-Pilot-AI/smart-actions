@@ -1,0 +1,12 @@
+name: 'Quick Task'
+description: 'Executes a simple task described in the action inputs'
+inputs:
+  task-description:
+    description: 'The description of the task to run as-is'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Run Task
+      run: ${{ inputs.task-description }}
+      shell: bash
