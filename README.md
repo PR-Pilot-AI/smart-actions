@@ -15,9 +15,10 @@ Easy-to-use, AI-powered Github Actions - customized and supercharged using natur
 ## Why do I need this?
 Smart Actions can make your daily life on Github easier.
 * **It speaks your language** - Instead of writing config files, just use your own words
-* **Easily automate** manual and tedious, repetitive tasks/workflows like:
+* **Automate** the tedious and boring work:
   * Checking / formatting / reacting to new issues
   * Making sure new PRs follow your contribution guidelines
+  * Maintain a changelog
 * **Hand off small development tasks** to an AI agent
   * via comment in issue / PR
   * let the AI agent react to keywords in your commit message
@@ -35,7 +36,7 @@ All the actions defined here are also actively used in this project.
 |----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | [`format-issue`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/issue_formatter.yaml)                      | When a new issue is created, an AI agent formats it, adds labels, checks for spelling errors, and more |
 | [`pr-creation-handler`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/auto_review_new_pull_requests.yaml) | An AI agent looks at every new PR and runs checks or actions that you define                           |
-| [`commit-monitor`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/commit_monitor.yaml)                     | An AI agent reacts to a user-defined keyword in commit messages                                        |
+| [`commit-monitor`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/commit_monitor.yaml)                     | Define a keyword / command (e.g. `/task`) and use it in commit messages to delegate follow-up work   |
 | [`action-wizard`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/generate_new_action.yaml)                 | A manual action that generates new Smart Actions based on a prompt                                     |
 
 ## Using Smart Actions in Your Projects
