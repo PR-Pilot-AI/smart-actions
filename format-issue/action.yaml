@@ -37,3 +37,4 @@ runs:
       env:
         ISSUE_NUMBER: ${{ inputs.issue-number }}
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
+        FORMATTING_INSTRUCTIONS: ${{ inputs.formatting-instructions }}
