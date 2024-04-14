@@ -17,6 +17,7 @@ A smart action is an action that is executed by a smart AI agent and has two com
 Every smart action has two files:
 - `<action-name>/<action-name>.py`: The code that executes the action
 - `<action-name>/action.yaml`: The metadata that describes the action
+Make sure to use dashes `-` in the action name, not underscores.
 
 # User Input
 The user has provided the following information:

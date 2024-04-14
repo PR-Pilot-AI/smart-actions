@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Handle New PR
-        uses: PR-Pilot-AI/smart-actions/pr_creation_handler@v1
+        uses: PR-Pilot-AI/smart-actions/pr-creation-handler@v1
         with:
 
           # API key for PR Pilot must be defined as a secret in the repository
@@ -20,7 +20,8 @@ jobs:
           pr-number: ${{ github.event.pull_request.number }}
 
           # Instructions for handling the PR
-          task-instructions: |
+          review-instructions: |
             - Review the PR for any obvious issues
-            - Assign appropriate labels
-            - Notify the team if urgent
+            - Assign appropriate labels if it doesn't have any
+            - Check for security concerns
+            - Comment on the PR if you find anything. Otherwise say 'Looks good to me'
