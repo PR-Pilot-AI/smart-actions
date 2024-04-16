@@ -38,7 +38,6 @@ All the actions defined here are also actively used in this project.
 | [`pr-creation-handler`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/auto_review_new_pull_requests.yaml) | An AI agent looks at every new PR and runs checks or actions that you define                                                                                                                |
 | [`commit-monitor`](./commit-monitor)                                                                                       | Define a keyword / command (e.g. `/task`) and use it in commit messages to delegate follow-up work                                                                                          |
 | [`replicator`](./replicator)                                                                                               | Take existing files / code and let AI generate something similar (Demo: [Smart Action Copy Cat](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/smart_action_copy_cat.yaml)) |
-| [`action-wizard`](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/generate_new_action.yaml)                 | A manual action that generates new Smart Actions based on a prompt                                                                                                                          |
 
 ## Using Smart Actions in Your Projects
 
