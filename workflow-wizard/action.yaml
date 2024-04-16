@@ -1,0 +1,29 @@
+name: 'Workflow Wizard'
+description: 'Automatically generates a new Github workflow based on a given description'
+inputs:
+  sdk-version:
+    description: 'PR Pilot SDK version to use'
+    required: false
+    default: '1.0.3'
+  api-key:
+    description: 'API key for PR Pilot'
+    required: true
+  description:
+    description: 'The natural language description of the workflow you want to generate'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip && pip install pr-pilot==${{ inputs.sdk-version }}
+      shell: bash
+    - name: Generate Workflow
+      run: python ${{ github.action_path }}/workflow-wizard.py
+      shell: bash
+      env:
+        PR_PILOT_API_KEY: ${{ inputs.api-key }}
+        WORKFLOW_DESCRIPTION: ${{ inputs.description }}
