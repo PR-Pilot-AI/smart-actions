@@ -1,12 +1,12 @@
 # Quick-Task Action
 
-The `quick-task` action is designed to execute tasks described directly in your commit messages or through issue comments. Simply include a task description, and the action will run it as specified.
+The `quick-task` action that allows you to directly issue tasks to PR Pilot.
 
 ## Workflow Ideas
 
-- **Execute Simple Tasks** Use a task description to run small, predefined tasks automatically.
-- **Run Scripts** Commit or comment with a task to run specific scripts in your repository.
-- **Automate Responses** Use task descriptions to automate responses to common repository events.
+- **Execute Simple Tasks** Use a task description to run small tasks instantly.
+- **Generate new Issues** Let the bot open a new issue based on your instructions
+- **Answer a Question** Have a question about your code? Let PR Pilot look at the code and answer it for you
 
 ## Usage
 
@@ -23,7 +23,12 @@ To use the `quick-task` action in your project, you'll need to include it in you
 ```yaml
 name: Execute Quick Task
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      task-description:
+        description: 'What should PR Pilot do for you?'
+        required: true
 
 jobs:
   run-quick-task:
@@ -35,5 +40,5 @@ jobs:
           # API key for PR Pilot must be defined as a secret in the repository
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
           # Description of the task to execute
-          task-description: "Automatically respond to issue"
+          task-description: ${{ github.event.inputs.task-description }}
 ```
