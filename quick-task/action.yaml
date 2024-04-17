@@ -1,0 +1,29 @@
+name: 'Quick Task'
+description: 'Executes tasks described in commit messages or issue comments'
+inputs:
+  sdk-version:
+    description: 'PR Pilot SDK version to use'
+    required: false
+    default: '1.2.0'
+  api-key:
+    description: 'API key for PR Pilot'
+    required: true
+  task-description:
+    description: 'Description of the task to run'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip && pip install pr-pilot==${{ inputs.sdk-version }}
+      shell: bash
+    - name: Run script
+      run: python  ${{ github.action_path }}/quick-task.py
+      shell: bash
+      env:
+        PR_PILOT_API_KEY: ${{ inputs.api-key }}
+        TASK_DESCRIPTION: ${{ inputs.task-description }}
