@@ -23,8 +23,7 @@ To use the `quick-task` action in your project, you'll need to include it in you
 ```yaml
 name: Execute Quick Task
 
-on:
-  push:
+on: workflow_dispatch
 
 jobs:
   run-quick-task:
