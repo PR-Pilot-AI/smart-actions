@@ -12,18 +12,6 @@
 
 Easy-to-use, AI-powered Github Actions - customized and supercharged using natural language.
 
-## Why do I need this?
-Smart Actions can make your daily life on Github easier.
-* **It speaks your language** - Instead of writing config files, just use your own words
-* **Automate** the tedious and boring work:
-  * Checking / formatting / reacting to new issues
-  * Making sure new PRs follow your contribution guidelines
-  * Maintain a changelog
-* **Hand off small development tasks** to an AI agent
-  * via comment in issue / PR
-  * let the AI agent react to keywords in your commit message
-
-
 ## What is a Smart Action?
 
 A Smart Action is a [GitHub Action](https://docs.github.com/en/actions) enhanced with **AI capabilities**, designed to automate Github projects in powerful new ways. You can use one of our curated, pre-defined actions or build your own.
