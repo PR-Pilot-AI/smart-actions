@@ -1,6 +1,6 @@
 import os
 
-from pr_pilot.util import create_task
+from pr_pilot.util import create_task, wait_for_result
 
 # Assuming GitHub Actions sets an environment variable for the commit message
 # If not, this approach needs to be adjusted accordingly
@@ -16,7 +16,4 @@ else:
     {commit_message}
     """
     print(prompt)
-
-    task = create_task(repo, prompt)
-    dashboard_url = f"https://app.pr-pilot.ai/dashboard/tasks/{str(task.id)}/"
-    print(f"Task to monitor the commit will be executed soon, monitor the task here: {dashboard_url}")
+    print(wait_for_result(create_task(repo, prompt)))

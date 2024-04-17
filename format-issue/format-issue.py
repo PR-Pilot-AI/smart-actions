@@ -1,6 +1,6 @@
 import os
 
-from pr_pilot.util import create_task
+from pr_pilot.util import create_task, wait_for_result
 
 issue_number = os.getenv("ISSUE_NUMBER")
 formatting_instructions = os.getenv("FORMATTING_INSTRUCTIONS")
@@ -14,6 +14,4 @@ Read the issue, then edit it according to the following instructions:
 """
 print(prompt)
 
-task = create_task(repo, prompt)
-dashboard_url = f"https://app.pr-pilot.ai/dashboard/tasks/{str(task.id)}/"
-print(f"Issue #{issue_number} will be formatted soon, monitor the task here: {dashboard_url}")
+print(wait_for_result(create_task(repo, prompt)))

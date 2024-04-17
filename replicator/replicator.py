@@ -1,6 +1,6 @@
 import os
 
-from pr_pilot.util import create_task
+from pr_pilot.util import create_task, wait_for_result
 
 template = os.getenv("TEMPLATE")
 characteristics = os.getenv("CHARACTERISTICS")
@@ -21,8 +21,4 @@ Read and understand it, then replicate it with the following characteristics:
 
 """
 print(prompt)
-
-task = create_task(repo, prompt)
-dashboard_url = f"https://app.pr-pilot.ai/dashboard/tasks/{str(task.id)}/"
-print(f"Replicator is running, monitor the task here: {dashboard_url}")
-print(f"::set-output name=task-link::{dashboard_url}")
+print(wait_for_result(create_task(repo, prompt)))
