@@ -13,8 +13,11 @@ on:
 jobs:
   replicate:
     runs-on: ubuntu-latest
+    outputs:
+      task-url: ${{ steps.replicate.outputs.task-url }}
     steps:
       - name: Replicate Smart Action
+        id: replicate
         uses: PR-Pilot-AI/smart-actions/replicator@v1
         with:
           # API key for PR Pilot must be defined as a secret in the repository

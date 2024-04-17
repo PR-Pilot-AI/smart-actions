@@ -8,8 +8,11 @@ on:
 jobs:
   handle-pr:
     runs-on: ubuntu-latest
+    outputs:
+      task-url: ${{ steps.review.outputs.task-url }}
     steps:
       - name: Handle New PR
+        id: review
         uses: PR-Pilot-AI/smart-actions/pr-creation-handler@v1
         with:
 

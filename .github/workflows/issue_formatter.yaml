@@ -8,8 +8,11 @@ on:
 jobs:
   format-issue:
     runs-on: ubuntu-latest
+    outputs:
+      task-url: ${{ steps.format.outputs.task-url }}
     steps:
       - name: Format GitHub Issue
+        id: format
         uses: PR-Pilot-AI/smart-actions/format-issue@v1
         with:
 

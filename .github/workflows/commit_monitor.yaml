@@ -7,8 +7,11 @@ on:
 jobs:
   monitor-commit:
     runs-on: ubuntu-latest
+    outputs:
+      task-url: ${{ steps.monitor.outputs.task-url }}
     steps:
-      - name: Monitor Commit
+      - id: monitor
+        name: Monitor Commit
         uses: PR-Pilot-AI/smart-actions/commit-monitor@v1
         with:
           # API key for PR Pilot must be defined as a secret in the repository
