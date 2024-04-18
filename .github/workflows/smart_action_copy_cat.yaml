@@ -1,4 +1,4 @@
-name: Smart Action Copy Cat
+name: "🐾 Smart Action Copy Cat"
 
 on:
   workflow_dispatch:
