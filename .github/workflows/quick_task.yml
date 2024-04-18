@@ -1,0 +1,21 @@
+name: ":robot: Quick Task"
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent_instructions:
+        description: 'Instructions for the AI agent to execute'
+        required: true
+
+jobs:
+  execute_instructions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Execute AI Agent Instructions
+        run: |
+          echo "Executing AI Agent Instructions..."
+          # Here, we would dynamically interpret and execute the instructions
+          # provided in the 'agent_instructions' input. This is a placeholder
+          # for the actual logic that would be implemented to handle the instructions.
