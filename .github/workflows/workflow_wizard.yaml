@@ -56,6 +56,7 @@ jobs:
             - Accessing and manipulating the file system
             - Reading, editing and creating Github issues
             - Searching the internet for information
+            ALL workflow inputs must be used in the step-by-step instructions.
             
             The workflow file must fulfill the following criteria:
             - Name of the workflow starts with emoji
@@ -63,6 +64,7 @@ jobs:
             - The step should have the following inputs:
               - `api-key` (similar to reference workflow)
               - `agent-instructions` (Step-by-step instructions for the AI agent)
+            - `agent-instructions` make use of the workflow inputs
             - Workflow has inputs according to the user's instructions
             - Workflow is triggered according to the user's instructions
             
