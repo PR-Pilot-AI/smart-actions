@@ -3,7 +3,7 @@ import os
 from pr_pilot.util import create_task, wait_for_result
 
 repo = os.getenv("GITHUB_REPOSITORY")
-task_description = os.getenv("TASK_DESCRIPTION")
+agent_instructions = os.getenv("AGENT_INSTRUCTIONS")
 
-print(task_description)
-print(wait_for_result(create_task(repo, task_description)))
+print(agent_instructions)
+print(wait_for_result(create_task(repo, agent_instructions)))

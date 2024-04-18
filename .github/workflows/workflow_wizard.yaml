@@ -1,0 +1,50 @@
+name: Workflow Wizard
+
+on:
+  # A workflow that is triggered manually
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: 'Do you want a manual workflow or should it be triggered by an event?'
+        required: true
+      agent-instructions:
+        description: 'What should the agent do?'
+        required: true
+
+jobs:
+  replicate:
+    runs-on: ubuntu-latest
+    outputs:
+      task-url: ${{ steps.replicate.outputs.task-url }}
+    steps:
+      - name: Generate new AI Workflow
+        id: generate-ai-workflow
+        uses: PR-Pilot-AI/smart-actions/quick-task@v1
+        with:
+          api-key: ${{ secrets.PR_PILOT_API_KEY }}
+          agent-instructions: |
+            Your task is to generate a new Github workflow.
+            The workflow's purpose is to automate something in the Github repository by using an AI agent 
+            that can understand and execute the instructions provided in the workflow file.
+            
+            The workflow should be triggered in the following way:
+            ```
+            ${{ github.event.inputs.trigger }}
+            ```
+            
+            The user has provided agent instructions in their own words:
+            ```
+            ${{ github.event.inputs.agent-instructions }}
+            ```
+            
+            These instructions need to be turned into a step-by-step guide for the AI agent to follow.
+            Make sure the step-by-step instructions are clear and concise and only contain instructions that 
+            the AI agent is capable of executing:
+            - Accessing and manipulating the file system
+            - Reading, editing and creating Github issues
+            - Searching the internet for information
+            
+            Do the following:
+            1. Read `.github/workflows/workflow_wizard.yaml` to understand the desired structure of the workflow file.
+            2. Turn the free-text instructions provided by the user into actionable step-by-step instructions for the AI agent.
+            3. Generate the new Github workflow file

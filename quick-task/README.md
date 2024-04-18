@@ -16,7 +16,7 @@ To use the `quick-task` action in your project, you'll need to include it in you
 
 - `sdk-version`: (Optional) Specifies the PR Pilot SDK version to use. Default is `1.2.0`.
 - `api-key`: (Required) Your API key for PR Pilot.
-- `task-description`: (Required) The description of the task to run.
+- `agent-instructions`: (Required) The description of the task to run.
 
 ### Example Workflow
 
@@ -26,7 +26,7 @@ name: Execute Quick Task
 on:
   workflow_dispatch:
     inputs:
-      task-description:
+      agent-instructions:
         description: 'What should PR Pilot do for you?'
         required: true
 
@@ -40,5 +40,5 @@ jobs:
           # API key for PR Pilot must be defined as a secret in the repository
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
           # Description of the task to execute
-          task-description: ${{ github.event.inputs.task-description }}
+          agent-instructions: ${{ github.event.inputs.agent-instructions }}
 ```
