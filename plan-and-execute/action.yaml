@@ -7,6 +7,13 @@ inputs:
   expected-result:
     description: 'The expected result of the execution phase'
     required: true
+  sdk-version:
+    description: 'PR Pilot SDK version to use'
+    required: false
+    default: '1.2.0'
+  api-key:
+    description: 'API key for PR Pilot'
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -15,16 +22,12 @@ runs:
       with:
         python-version: '3.8'
     - name: Install dependencies
-      run: python -m pip install --upgrade pip && pip install pr-pilot==1.2.0
+      run: python -m pip install --upgrade pip && pip install pr-pilot==${{ inputs.sdk-version }}
       shell: bash
-    - name: Plan Task
-      run: python ${{ github.action_path }}/plan.py
+    - name: Plan and Execute Task
+      run: python ${{ github.action_path }}/plan-and-execute.py
       shell: bash
       env:
+        PR_PILOT_API_KEY: ${{ inputs.api-key }}
         TASK_DESCRIPTION: ${{ inputs.task-description }}
         EXPECTED_RESULT: ${{ inputs.expected-result }}
-    - name: Execute Task
-      run: python ${{ github.action_path }}/execute.py
-      shell: bash
-      env:
-        PLAN: ${{ steps.plan.outputs.plan }}
