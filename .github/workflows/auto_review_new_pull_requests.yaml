@@ -23,7 +23,7 @@ jobs:
           pr-number: ${{ github.event.pull_request.number }}
 
           # Instructions for handling the PR
-          review-instructions: |
+          agent-instructions: |
             - Review the PR for any obvious issues
             - Assign appropriate labels if it doesn't have any
             - Check for security concerns

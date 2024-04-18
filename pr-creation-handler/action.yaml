@@ -1,11 +1,11 @@
 name: 'PR Creation Handler'
-description: 'Asks PR Pilot to review a new pull request'
+description: 'Let the agent react to a new PR creation event and handle it according to your instructions'
 inputs:
   pr-number:
     description: 'Number of the Github PR to handle'
     required: true
-  review-instructions:
-    description: 'Instructions for how to review the PR'
+  agent-instructions:
+    description: 'Instructions for how to handle the PR'
     required: true
     default: |
       - Review the PR for any obvious issues
@@ -35,4 +35,4 @@ runs:
       env:
         PR_NUMBER: ${{ inputs.pr-number }}
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
-        REVIEW_INSTRUCTIONS: ${{ inputs.review-instructions }}
+        AGENT_INSTRUCTIONS: ${{ inputs.agent-instructions }}
