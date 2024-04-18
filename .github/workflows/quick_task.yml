@@ -1,0 +1,20 @@
+name: ":zap: Quick Task"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  execute_instructions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Execute User Instructions
+        run: |
+          echo "Executing user-provided instructions..."
+          # Add steps here to execute instructions
+          # This is a placeholder for dynamic instruction execution
+          # Instructions could include:
+          # - Accessing and manipulating the file system
+          # - Reading, editing, and creating Github issues
+          # - Searching the internet for information
