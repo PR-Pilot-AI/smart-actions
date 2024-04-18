@@ -1,4 +1,4 @@
-name: ":rocket: Quick Task"
+name: "🚀Quick Task"
 
 on:
   workflow_dispatch:

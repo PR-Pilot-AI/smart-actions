@@ -59,7 +59,7 @@ jobs:
             ALL workflow inputs must be used in the step-by-step instructions.
             
             The workflow file must fulfill the following criteria:
-            - Name of the workflow starts with emoji
+            - Name of the workflow starts with an emoji (UTF-8 character)
             - Has only one job with one step that uses `PR-Pilot-AI/smart-actions/quick-task@v1`
             - The step should have the following inputs:
               - `api-key` (similar to reference workflow)
