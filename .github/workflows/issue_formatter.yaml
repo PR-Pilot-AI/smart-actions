@@ -1,4 +1,4 @@
-name: Ensure new issue is properly formatted
+name: "📝 Ensure new issue is properly formatted"
 
 # Triggers the workflow on new issue creation
 on:

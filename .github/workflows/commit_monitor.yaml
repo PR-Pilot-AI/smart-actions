@@ -1,4 +1,4 @@
-name: Listen for /document command
+name: "🎧 Listen for /document command"
 
 # Triggers the workflow on every push to the repository
 on:

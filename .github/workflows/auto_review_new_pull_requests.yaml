@@ -1,4 +1,4 @@
-name: Handle new PR creation
+name: "🔍 Handle new PR creation"
 
 # Triggers the workflow on new pull request creation
 on:
