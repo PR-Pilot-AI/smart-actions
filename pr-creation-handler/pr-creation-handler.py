@@ -13,4 +13,4 @@ Read the PR, then review it according to the following instructions:
 {review_instructions}
 """
 print(prompt)
-print(wait_for_result(create_task(repo, prompt)))
+print(wait_for_result(create_task(repo, prompt, pr_number=pr_number)))

@@ -14,4 +14,4 @@ Read the issue, then edit it according to the following instructions:
 """
 print(prompt)
 
-print(wait_for_result(create_task(repo, prompt)))
+print(wait_for_result(create_task(repo, prompt, issue_number=issue_number)))
