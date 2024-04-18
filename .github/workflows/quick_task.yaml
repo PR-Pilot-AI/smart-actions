@@ -1,0 +1,18 @@
+name: ":rocket: Quick Task"
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent-instructions:
+        description: 'What should the agent do for you?'
+        required: true
+
+jobs:
+  execute_quick_task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute AI Task
+        uses: PR-Pilot-AI/smart-actions/quick-task@v1
+        with:
+          api-key: ${{ secrets.PR_PILOT_API_KEY }}
+          agent-instructions: ${{ github.event.inputs.agent-instructions }}
