@@ -57,8 +57,18 @@ jobs:
             - Reading, editing and creating Github issues
             - Searching the internet for information
             
+            The workflow file must fulfill the following criteria:
+            - Name of the workflow starts with emoji
+            - Has only one job with one step that uses `PR-Pilot-AI/smart-actions/quick-task@v1`
+            - The step should have the following inputs:
+              - `api-key` (similar to reference workflow)
+              - `agent-instructions` (Step-by-step instructions for the AI agent)
+            - Workflow has inputs according to the user's instructions
+            - Workflow is triggered according to the user's instructions
+            
+            
             Do the following:
-            1. Read `.github/workflows/workflow_wizard.yaml` to understand the desired structure of the workflow file.
+            1. Read `.github/workflows/workflow_wizard.yaml` as reference to understand the desired structure of the workflow file.
             2. Turn the free-text instructions provided by the user into actionable step-by-step instructions for the AI agent.
             3. Generate the new Github workflow file and make sure the title starts with an emoji
             
