@@ -8,20 +8,23 @@ on:
         description: 'Name of the new workflow'
         required: true
       trigger:
-        description: ''
+        description: 'Is this a manual workflow or should it run on a specific event?'
         required: true
+      workflow-inputs:
+        description: 'Does this require any inputs? If so, what are they?'
+        required: false
       agent-instructions:
         description: 'What should the agent do?'
         required: true
 
 jobs:
-  replicate:
+  generate-new-ai-workflow:
     runs-on: ubuntu-latest
     outputs:
-      task-url: ${{ steps.replicate.outputs.task-url }}
+      task-url: ${{ steps.generate-new-ai-workflow.outputs.task-url }}
     steps:
       - name: Generate new AI Workflow
-        id: generate-ai-workflow
+        id: generate-new-ai-workflow
         uses: PR-Pilot-AI/smart-actions/quick-task@v1
         with:
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
@@ -40,6 +43,11 @@ jobs:
             The user has provided agent instructions in their own words:
             ```
             ${{ github.event.inputs.agent-instructions }}
+            ```
+            
+            The user has also specified any inputs required for the workflow:
+            ```
+            ${{ github.event.inputs.workflow-inputs }}
             ```
             
             These instructions need to be turned into a step-by-step guide for the AI agent to follow.
