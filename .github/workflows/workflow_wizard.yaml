@@ -4,8 +4,11 @@ on:
   # A workflow that is triggered manually
   workflow_dispatch:
     inputs:
+      workflow-name:
+        description: 'Name of the new workflow'
+        required: true
       trigger:
-        description: 'Do you want a manual workflow or should it be triggered by an event?'
+        description: ''
         required: true
       agent-instructions:
         description: 'What should the agent do?'
@@ -32,6 +35,8 @@ jobs:
             ${{ github.event.inputs.trigger }}
             ```
             
+            It should be named `${{ github.event.inputs.workflow-name }}`
+            
             The user has provided agent instructions in their own words:
             ```
             ${{ github.event.inputs.agent-instructions }}
@@ -47,4 +52,5 @@ jobs:
             Do the following:
             1. Read `.github/workflows/workflow_wizard.yaml` to understand the desired structure of the workflow file.
             2. Turn the free-text instructions provided by the user into actionable step-by-step instructions for the AI agent.
-            3. Generate the new Github workflow file
+            3. Generate the new Github workflow file and make sure the title starts with an emoji
+            
