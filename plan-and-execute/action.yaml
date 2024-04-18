@@ -1,0 +1,33 @@
+name: 'Plan and Execute'
+description: 'Plans and executes tasks based on a given description and expected result'
+inputs:
+  task-description:
+    description: 'The description of the task to plan'
+    required: true
+  expected-result:
+    description: 'The expected result of the execution phase'
+    required: true
+  sdk-version:
+    description: 'PR Pilot SDK version to use'
+    required: false
+    default: '1.2.0'
+  api-key:
+    description: 'API key for PR Pilot'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip && pip install pr-pilot==${{ inputs.sdk-version }}
+      shell: bash
+    - name: Plan and Execute Task
+      run: python ${{ github.action_path }}/plan-and-execute.py
+      shell: bash
+      env:
+        PR_PILOT_API_KEY: ${{ inputs.api-key }}
+        TASK_DESCRIPTION: ${{ inputs.task-description }}
+        EXPECTED_RESULT: ${{ inputs.expected-result }}
