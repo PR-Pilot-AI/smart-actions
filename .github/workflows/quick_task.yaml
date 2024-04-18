@@ -1,0 +1,21 @@
+name: ":rocket: Quick Task"
+
+on:
+  workflow_dispatch:
+    inputs:
+      task_instructions:
+        description: 'Execute the instructions given as input'
+        required: true
+
+jobs:
+  execute_quick_task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute AI Task
+        uses: PR-Pilot-AI/smart-actions/quick-task@v1
+        with:
+          api-key: ${{ secrets.PR_PILOT_API_KEY }}
+          agent-instructions: |
+            - Access and manipulate the file system as per the task instructions
+            - Read, edit, and create Github issues based on the task instructions
+            - Search the internet for information necessary to complete the task
