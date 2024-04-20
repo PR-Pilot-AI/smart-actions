@@ -2,11 +2,14 @@ name: 'Plan and Execute'
 description: 'Plans and executes tasks based on a given description and expected result'
 inputs:
   task-description:
-    description: 'The description of the task to plan'
+    description: 'The description of the task that should be accomplished'
     required: true
   expected-result:
     description: 'The expected result of the execution phase'
     required: true
+  agent-hints:
+    description: 'Hints for the agent to accomplish the task'
+    required: false
   sdk-version:
     description: 'PR Pilot SDK version to use'
     required: false
@@ -31,3 +34,4 @@ runs:
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
         TASK_DESCRIPTION: ${{ inputs.task-description }}
         EXPECTED_RESULT: ${{ inputs.expected-result }}
+        AGENT_HINTS: ${{ inputs.agent-hints }}

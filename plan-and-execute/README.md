@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Find tutorial and build
-        uses: PR-Pilot-AI/smart-actions/plan-and-executek@v1
+        uses: PR-Pilot-AI/smart-actions/plan-and-execute@v1
         with:
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
           task-description: |
