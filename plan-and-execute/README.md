@@ -19,8 +19,10 @@ To use the `Plan and Execute` action in your project, you'll need to include it 
 
 ### Inputs
 
+- `api-key`: (Required) The API key for the PR Pilot AI service.
 - `task-description`: (Required) The description of the task to plan.
 - `expected-result`: (Required) The expected result of the execution phase.
+- `agent-hints` (Optional) Hints for the AI agent to improve the quality of the plan and execution.
 
 ### Example Workflow
 
@@ -45,11 +47,9 @@ jobs:
         with:
           api-key: ${{ secrets.PR_PILOT_API_KEY }}
           task-description: |
-            Find a tutorial online on how to build:
+            Find a tutorial online on how to build the following:
             
-            ```
             ${{ github.event.inputs.what-to-build }}
-            ```
           expected-result: |
             New and updated files in the repository that implement the task based on the tutorial.
 ```
