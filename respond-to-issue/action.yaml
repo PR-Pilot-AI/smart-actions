@@ -4,10 +4,6 @@ inputs:
   issue-number:
     description: 'Number of the Github issue to respond to'
     required: true
-  response-template:
-    description: 'Template for responding to the issue'
-    required: true
-    default: 'Thank you for your issue, we will look into it.'
   sdk-version:
     description: 'PR Pilot SDK version to use'
     required: false
@@ -31,4 +27,3 @@ runs:
       env:
         ISSUE_NUMBER: ${{ inputs.issue-number }}
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
-        RESPONSE_TEMPLATE: ${{ inputs.response-template }}
