@@ -14,7 +14,7 @@ To use the `quick-task` action in your project, you'll need to include it in you
 
 ### Inputs
 
-- `sdk-version`: (Optional) Specifies the PR Pilot SDK version to use. Default is `1.2.0`.
+- `sdk-version`: (Optional) Specifies the PR Pilot SDK version to use. Default is `1.3.1`.
 - `api-key`: (Required) Your API key for PR Pilot.
 - `agent-instructions`: (Required) The description of the task to run.
 

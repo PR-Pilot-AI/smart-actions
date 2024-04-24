@@ -14,7 +14,7 @@ To use the `commit-monitor` action in your project, you'll need to include it in
 
 ### Inputs
 
-- `sdk-version`: (Optional) Specifies the PR Pilot SDK version to use. Default is `1.2.0`.
+- `sdk-version`: (Optional) Specifies the PR Pilot SDK version to use. Default is `1.3.1`.
 - `api-key`: (Required) Your API key for PR Pilot.
 - `trigger-keyword`: (Required) The keyword to trigger task creation.
 
