@@ -28,6 +28,7 @@ All the actions defined here are also actively used in this project.
 | [`replicator`](./replicator)                                                                                               | Take existing files / code and let AI generate something similar (Demo: [Smart Action Copy Cat](https://github.com/PR-Pilot-AI/smart-actions/actions/workflows/smart_action_copy_cat.yaml)) |
 | [`quick-task`](./quick-task)                                                                                               | Quickly instruct AI agent to do work for you                                                                                                                                                |
 | [`plan-and-execute`](./plan-and-execute)                                                                                   | Run more complex tasks by letting the agent create a plan first and then execute it                                                                                                         |
+| [`respond-to-issue`](./respond-to-issue)                                                                                   | Reads the issue based on issue number, potentially takes action based on issue content, and adds a comment to the issue with a response                                                    |
 
 ## Using Smart Actions in Your Projects
 
