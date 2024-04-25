@@ -1,0 +1,30 @@
+name: "📝 Maintain Changelog"
+
+on:
+  release:
+    types: [created]
+    
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Assemble commit messages
+        id: get-commits
+        run: |
+          echo "commit_messages=$(git log $(git describe --tags --abbrev=0 $(git describe --tags --abbrev=0)^)..$(git describe --tags --abbrev=0) --pretty=format:'%s')"
+          echo "COMMIT_MESSAGES<<EOF"$'\n'"$commit_messages"$'\n'EOF >> "$GITHUB_OUTPUT"
+      - name: Update CHANGELOG.md
+        uses: PR-Pilot-AI/smart-actions/quick-task@v1
+        with:
+          api-key: ${{ secrets.PR_PILOT_API_KEY }}
+          agent-instructions: |
+            There was a new release on the project. The following commit messages were included in the release:
+            ```
+            ${{ steps.get-commits.outputs.COMMIT_MESSAGES }}
+            ```
+            Release tag: `${{ github.event.release.tag_name }}`
+            
+            1. Summarize the commit messages into a concise list of distinct changes
+            2. Write a new section into `CHANGELOG.md` for the current release version
