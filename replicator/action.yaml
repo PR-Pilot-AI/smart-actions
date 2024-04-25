@@ -10,7 +10,7 @@ inputs:
   sdk-version:
     description: 'PR Pilot SDK version to use'
     required: false
-    default: '1.3.1'
+    default: '1.3.2'
   api-key:
     description: 'API key for PR Pilot'
     required: true
