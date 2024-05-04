@@ -34,3 +34,4 @@ runs:
       env:
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
         AGENT_INSTRUCTIONS: ${{ inputs.agent-instructions }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
