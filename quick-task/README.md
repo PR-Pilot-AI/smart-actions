@@ -14,9 +14,10 @@ To use the `quick-task` action in your project, you'll need to include it in you
 
 ### Inputs
 
-- `sdk-version`: (Optional) Specifies the PR Pilot SDK version to use. Default is `1.3.2`.
+- `sdk-version`: (Optional) Specifies the PR Pilot SDK version to use. Default is `1.4.0`.
 - `api-key`: (Required) Your API key for PR Pilot.
 - `agent-instructions`: (Required) The description of the task to run.
+- `gpt-model`: (Optional) The GPT model to use. Default is `gpt-4-turbo`.
 
 ### Example Workflow
 

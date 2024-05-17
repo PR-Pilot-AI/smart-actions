@@ -4,13 +4,17 @@ inputs:
   sdk-version:
     description: 'PR Pilot SDK version to use'
     required: false
-    default: '1.3.2'
+    default: '1.4.0'
   api-key:
     description: 'API key for PR Pilot'
     required: true
   agent-instructions:
     description: 'Description of the task to run'
     required: true
+  gpt-model:
+    description: 'Which OpenAI model to use for the task'
+    required: false
+    default: 'gpt-4-turbo'
 runs:
   using: 'composite'
   steps:
@@ -35,3 +39,4 @@ runs:
         PR_PILOT_API_KEY: ${{ inputs.api-key }}
         AGENT_INSTRUCTIONS: ${{ inputs.agent-instructions }}
         PR_NUMBER: ${{ github.event.pull_request.number }}
+        GPT_MODEL: ${{ inputs.gpt-model }}
