@@ -14,7 +14,7 @@ inputs:
   gpt-model:
     description: 'Which OpenAI model to use for the task'
     required: false
-    default: 'gpt-4-turbo'
+    default: 'gpt-4o'
 runs:
   using: 'composite'
   steps:
